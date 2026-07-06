@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
         }else if(Input.GetKeyUp(KeyCode.Space))
         {
-            StopJump();
+            StopJump(); 
         }
 
     }
