@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         float yVal = Input.GetAxisRaw("Vertical");
         if(Input.GetKeyDown(KeyCode.Space)){
             if(isFalling == false){
-                InitiateJump();
+                InitiateJump(); 
             }
             
 
