@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour
     {
         float yVal = Input.GetAxisRaw("Vertical");
         if(Input.GetKeyDown(KeyCode.Space)){
-            Debug.Log("SPACE ENTERED");
             if(isFalling == false){
                 InitiateJump();
             }
@@ -71,7 +70,6 @@ public class PlayerController : MonoBehaviour
 
         }else if(Input.GetKeyUp(KeyCode.Space))
         {
-            Debug.Log("SPACE RELEASED -- within ELSE block");
             StopJump();
         }
 
@@ -102,7 +100,6 @@ public class PlayerController : MonoBehaviour
             movementSpeed = 0.0f;
         }
 
-        Debug.Log("CHECK rb.velocity.x --> " + rb.velocity.x.ToString());
         if(rb.velocity.x !=0)
         {
             isWalking = true;
@@ -115,15 +112,11 @@ public class PlayerController : MonoBehaviour
     }
 
     private void CheckPlayerFall(){
-        // Debug.Log("Check Fall-->" + Input.GetAxisRaw("Vertical").ToString());
-        Debug.Log("Check Fall by RB-->" + rb.velocity.y.ToString());
         dropSpeed = rb.velocity.y;
         if(  rb.velocity.y < 0.0f){
-            Debug.Log("isFalling = true");
             isFalling = true; 
 
         }else{
-            Debug.Log("isFalling = false");
             isFalling = false;
         }
     }
@@ -138,12 +131,10 @@ public class PlayerController : MonoBehaviour
     private void CheckInput()
     {
         movementInputDirection = Input.GetAxisRaw("Horizontal");
-        // Debug.Log("InputDirection-->" + movementInputDirection.ToString());
     }
 
     private void ApplyMovement()
     {
-        // Debug.Log("Applying movement-->" + movementInputDirection.ToString());
         //Calculate movement speed
         if(movementSpeed < MAX_MOVE_SPEED && movementSpeed >= 0.0f){
             movementSpeed += ACCELERATION_RATE;
